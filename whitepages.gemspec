@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "whitepages"
-  s.version = "0.1.0"
+  s.version = "0.1.1"
   s.summary = "Ruby Library for the Whitepages API"
   s.description = "Ruby Library for the Whitepages API - http://www.whitepages.com"
   s.authors = ["Jason Goecke"]
