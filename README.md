@@ -1,63 +1,59 @@
-h1. whitepages
+# whitepages
 
-* http://whitepages.rubyforge.org
+[http://whitepages.rubyforge.org](http://whitepages.rubyforge.org)
 
-h2. Description
-
-The Whitepages Gem provides a library for consuming the web services provided by <a href="http://www.whitepages.com">Whitepages</a>. More information on the Developer API may be found <a href="http://developer.whitepages.com/">here</a>. This API may be used to lookup people by name as well as reverse lookups based on phone number or address.
+The Whitepages Gem provides a library for consuming the web services provided by [http://whitepages.rubyforge.org](http://whitepages.rubyforge.org). More information on the Developer API may be found at [http://developer.whitepages.com/](http://developer.whitepages.com/). This API may be used to lookup people by name as well as reverse lookups based on phone number or address.
 
 There are a couple of limitations to consider (refer to the Whitepages website for any changes):
 
-* Maximum of 1,500 calls per day per API key
-* Throttle set at 2 searches per second per API key
+	* Maximum of 1,500 calls per day per API key
+	* Throttle set at 2 searches per second per API key
 
-h2. Example
+## Example
 
-<pre>
-	<code>
-		require 'rubygems'
-		require 'whitepages'
-		
-		API_KEY = "api_key_here"
-		
-		wp = Whitepages.new(API_KEY)
+```ruby
+require 'rubygems'
+require 'whitepages'
 
-		#Query a person based on name, where state is optional
-		#This will return multiple listings if they exist
-		#More options are available here: 
-		#http://developer.whitepages.com/docs/Methods/find_person
-		data = wp.find_person({ "lastname" => "Smith", 
-		                        "state"    => "CO" })
+API_KEY = "api_key_here"
 
-		#Query an entry based on phone, where state is optional
-		#More options are available here:
-		#http://developer.whitepages.com/docs/Methods/reverse_phone
-		data = wp.reverse_phone({ "phone"   => "4155551212", 
-		                          "state"   => "CA" })
+wp = Whitepages.new(API_KEY)
 
-		#Query an entry based on address, where state and city are optional
-		#More options are available here:
-		#http://developer.whitepages.com/docs/Methods/reverse_address
-		data = wp.reverse_address({ "street"  => "1301 Fifth Ave", 
-		                            "city"    => "Seattle",
-		                            "state"   => "WA" })
-    </code>
-</pre>
+#Query a person based on name, where state is optional
+#This will return multiple listings if they exist
+#More options are available here: 
+#http://developer.whitepages.com/docs/Methods/find_person
+data = wp.find_person({ "lastname" => "Smith", 
+                        "state"    => "CO" })
 
-h2. Requirements
+#Query an entry based on phone, where state is optional
+#More options are available here:
+#http://developer.whitepages.com/docs/Methods/reverse_phone
+data = wp.reverse_phone({ "phone"   => "4155551212", 
+                          "state"   => "CA" })
 
-* xmlsimple 
-* rest_client
+#Query an entry based on address, where state and city are optional
+#More options are available here:
+#http://developer.whitepages.com/docs/Methods/reverse_address
+data = wp.reverse_address({ "street"  => "1301 Fifth Ave", 
+                            "city"    => "Seattle",
+                            "state"   => "WA" })
+```
 
-h2. Install
+## Requirements
 
-<pre>sudo gem install jsgoecke-whitepages --source=http://gems.github.com/</pre>
+	* xmlsimple 
+	* rest_client
 
-h2. License
+## Install
+
+	sudo gem install jsgoecke-whitepages --source=http://gems.github.com/
+
+## License
 
 The MIT License
  
-Copyright (c) 2009 Jason Goecke
+Copyright (c) 2014 Jason Goecke
  
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
