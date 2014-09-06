@@ -35,7 +35,12 @@ class Whitepages
   #More details may be found here: http://developer.whitepages.com/docs/Methods/find_person
   def find_person(options)
     resp, data = @http.get(build_uri(options, "find_person"))
-    return JSON.parse(data)
+    if resp.code== 200
+      return JSON.parse(data)
+    else
+      raise Exception,"code",resp.code
+    end
+
   end
 
   #Retrieves contact information about a telephone number
@@ -45,7 +50,13 @@ class Whitepages
   #More details may be found here: http://developer.whitepages.com/docs/Methods/reverse_phone
   def reverse_phone(options)  
     resp, data = @http.get(build_uri(options, "reverse_phone"))
-    return JSON.parse(data)
+
+    if resp.code== 200
+      return JSON.parse(data)
+    else
+      raise Exception,"code",resp.code
+    end
+
   end
   
   #Retrieves contact information about the people at an address
@@ -59,7 +70,11 @@ class Whitepages
   #More details may be found here: http://developer.whitepages.com/docs/Methods/reverse_address
   def reverse_address(options)
     resp, data = @http.get(build_uri(options, "reverse_address"))
-    return JSON.parse(data)
+    if resp.code== 200
+      return JSON.parse(data)
+    else
+      raise Exception,"code",resp.code
+    end
   end
   
   private 
